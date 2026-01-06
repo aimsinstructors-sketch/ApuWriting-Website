@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AIMS ENGLISH UPOSHAHAR</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="main-header">
+    <h1>AIMS ENGLISH UPOSHAHAR</h1>
+    <h2>APU WRITING</h2>
+</header>
+<hr>
+
+<h2>Questions</h2>
+<ul id="questionList"></ul>
+
+<script src="script.js"></script>
+<script>
+const questions = [
+    { id: 1, name: "Question 1", pdf: "Questions/q1.pdf" },
+    { id: 2, name: "Question 2", pdf: "Questions/q2.pdf" },
+    { id: 3, name: "Question 3", pdf: "Questions/q3.pdf" },
+    { id: 4, name: "Question 4", pdf: "Questions/q4.pdf" },
+    { id: 5, name: "Question 5", pdf: "Questions/q5.pdf" },
+    { id: 6, name: "Question 6", pdf: "Questions/q6.pdf" },
+    { id: 7, name: "Question 7", pdf: "Questions/q7.pdf" },
+    { id: 8, name: "Question 8", pdf: "Questions/q8.pdf" },
+    { id: 9, name: "Question 9", pdf: "Questions/q9.pdf" },
+    { id: 10, name: "Question 10", pdf: "Questions/q10.pdf" },
+    { id: 11, name: "Question 11", pdf: "Questions/q11.pdf" },
+    { id: 12, name: "Question 12", pdf: "Questions/q12.pdf" },
+    { id: 13, name: "Question 13", pdf: "Questions/q13.pdf" },
+    { id: 14, name: "Question 14", pdf: "Questions/q14.pdf" },
+    { id: 15, name: "Question 15", pdf: "Questions/q15.pdf" },
+    { id: 16, name: "Question 16", pdf: "Questions/q16.pdf" },
+    { id: 17, name: "Question 17", pdf: "Questions/q17.pdf" },
+    { id: 18, name: "Question 18", pdf: "Questions/q18.pdf" },
+    { id: 18, name: "Question 19", pdf: "Questions/q19.pdf" }
+];
+
+
+const list = document.getElementById("questionList");
+questions.forEach(q => {
+    const li = document.createElement("li");
+    li.textContent = q.name;
+
+    const btn = document.createElement("button");
+    btn.textContent = "Open Question";
+    btn.onclick = () => {
+        localStorage.setItem("selectedQuestionPDF", q.pdf);
+        location.href = "answer.html";
+    };
+
+    li.appendChild(btn);
+    list.appendChild(li);
+});
+</script>
+</body>
+</html>
