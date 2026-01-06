@@ -4,6 +4,30 @@
     <meta charset="UTF-8">
     <title>AIMS ENGLISH UPOSHAHAR</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .question img {
+            width: 100%;
+            max-width: 900px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+        }
+        .answer {
+            width: 100%;
+            max-width: 900px;
+        }
+        #answerBox {
+            width: 100%;
+            min-height: 200px;
+            padding: 10px;
+            font-size: 16px;
+            font-family: Georgia, serif;
+        }
+    </style>
 </head>
 <body>
 
@@ -14,33 +38,40 @@
 <hr>
 
 <div class="container">
-    <div class="question">
-        <iframe id="questionPdf" src="" width="100%" height="600px"></iframe>
+    <div class="question" id="questionArea">
+        <!-- Image will be injected here -->
     </div>
 
     <div class="answer">
         <h2>Your Answer</h2>
-        <!-- Added id="answerBox" -->
         <textarea id="answerBox" spellcheck="false" autocorrect="off" autocomplete="off" autocapitalize="off" placeholder="Write your answer here..."></textarea>
         <p id="wordCount">Word Count: 0</p>
     </div>
 </div>
-<div id="questionArea"></div>
 
 <script>
+// Get the selected question image from localStorage
 const imagePath = localStorage.getItem("selectedQuestionImage");
 
-if (imagePath) {
+// Inject image into the question area
+if(imagePath) {
     document.getElementById("questionArea").innerHTML = `
-        <img src="${imagePath}" 
-             style="width:100%; max-width:900px; border:1px solid #ccc;">
+        <img src="${imagePath}" alt="Question" />
     `;
 } else {
-    document.getElementById("questionArea").innerHTML =
-        "<p>No question selected.</p>";
+    document.getElementById("questionArea").innerHTML = "<p>No question selected.</p>";
 }
+
+// Word count functionality
+const textarea = document.getElementById("answerBox");
+const wordCountDisplay = document.getElementById("wordCount");
+
+textarea.addEventListener("input", () => {
+    const text = textarea.value.trim();
+    const words = text === "" ? 0 : text.split(/\s+/).length;
+    wordCountDisplay.textContent = `Word Count: ${words}`;
+});
 </script>
 
 </body>
 </html>
-
