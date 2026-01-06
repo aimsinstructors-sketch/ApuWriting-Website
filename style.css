@@ -11,8 +11,8 @@ body {
 }
 
 .container {
-    max-width: 100px;
-    margin: 20px;
+    max-width: 1000px;
+    margin: 20px auto;
     padding: 10px;
 }
 
@@ -22,32 +22,39 @@ body {
     gap: 20px;
 }
 
-/* Question and Answer boxes - same height */
+/* Question and Answer boxes - equal width and height */
 .question, .answer {
     flex: 1; /* Equal width */
     display: flex;
     flex-direction: column;
     border: 1px solid #ccc;
-    padding: 10px;
-    box-sizing: border-box;
     background: #fff;
     min-height: 400px;
+    box-sizing: border-box;
+    padding: 0; /* Remove padding for full image size */
 }
 
-/* Question image styling */
+/* Question image styling - fill container */
 .question img {
-    max-width: 50%;
-    max-height: 50%;
-    object-fit: contain;
-    margin: auto;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Makes the image fill the box fully */
     display: block;
 }
 
-/* Answer textarea styling */
+/* Answer container styling */
+.answer {
+    padding: 10px; /* Add padding for textarea */
+}
+
+.answer h2 {
+    margin: 10px 0;
+}
+
 .answer textarea {
     width: 100%;
-    flex: 1; /* Fill the height of container */
-    resize: none; /* Disable manual resize */
+    flex: 1; /* Take full height of container */
+    resize: none;
     padding: 10px;
     font-size: 16px;
     box-sizing: border-box;
@@ -58,4 +65,3 @@ body {
     margin-top: 5px;
     font-weight: bold;
 }
-
