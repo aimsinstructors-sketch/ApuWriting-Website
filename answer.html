@@ -30,10 +30,9 @@
 </div>
 
 <script>
-// Get the selected question image from localStorage
-const imagePath = localStorage.getItem("selectedQuestionImage");
+// Use the uploaded image for testing
+const imagePath = '/mnt/data/8e739331-1149-4653-a4c3-6ef0e7ae95bb.png';
 
-// Inject image into the question area
 const questionArea = document.getElementById("questionArea");
 if(imagePath) {
     questionArea.innerHTML = `<img src="${imagePath}" alt="Question" />`;
