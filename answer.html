@@ -2,43 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>AIMS ENGLISH UPOSHAHAR</title>
+    <title>Answer Writing</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header class="main-header">
     <h1>AIMS ENGLISH UPOSHAHAR</h1>
-    <h2>(APU) WRITING</h2>
+    <h2>APU WRITING</h2>
 </header>
 <hr>
 
-<div class="container">
-    <div class="question">
-        <iframe id="questionPdf" src="" width="100%" height="600px"></iframe>
-    </div>
+<div id="questionArea"></div>
 
-    <div class="answer">
-        <h2>Your Answer</h2>
-        <!-- Added id="answerBox" -->
-        <textarea id="answerBox" spellcheck="false" autocorrect="off" autocomplete="off" autocapitalize="off" placeholder="Write your answer here..."></textarea>
-        <p id="wordCount">Word Count: 0</p>
-    </div>
-</div>
-
-<script src="script.js"></script>
 <script>
-document.getElementById("questionPdf").src = localStorage.getItem("selectedQuestionPDF");
+const imagePath = localStorage.getItem("selectedQuestionImage");
 
-// Word count functionality
-const textarea = document.getElementById("answerBox");
-const wordCountDisplay = document.getElementById("wordCount");
-
-textarea.addEventListener("input", () => {
-    const text = textarea.value.trim();
-    const words = text === "" ? 0 : text.split(/\s+/).length;
-    wordCountDisplay.textContent = `Word Count: ${words}`;
-});
+if (imagePath) {
+    document.getElementById("questionArea").innerHTML = `
+        <img src="${imagePath}" 
+             style="width:100%; max-width:900px; border:1px solid #ccc;">
+    `;
+} else {
+    document.getElementById("questionArea").innerHTML =
+        "<p>No question selected.</p>";
+}
 </script>
 
 </body>
