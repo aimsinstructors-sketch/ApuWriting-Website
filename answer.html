@@ -14,14 +14,18 @@
 <hr>
 
 <div class="container">
-    <div class="question" id="questionArea">
-        <!-- Image will be injected here -->
-    </div>
+    <div class="qa-container">
+        <!-- Question Image -->
+        <div class="question" id="questionArea">
+            <!-- Image will be injected here -->
+        </div>
 
-    <div class="answer">
-        <h2>Your Answer</h2>
-        <textarea id="answerBox" spellcheck="false" autocorrect="off" autocomplete="off" autocapitalize="off" placeholder="Write your answer here..."></textarea>
-        <p id="wordCount">Word Count: 0</p>
+        <!-- Answer Box -->
+        <div class="answer">
+            <h2>Your Answer</h2>
+            <textarea id="answerBox" spellcheck="false" autocorrect="off" autocomplete="off" autocapitalize="off" placeholder="Write your answer here..."></textarea>
+            <p id="wordCount">Word Count: 0</p>
+        </div>
     </div>
 </div>
 
@@ -30,12 +34,11 @@
 const imagePath = localStorage.getItem("selectedQuestionImage");
 
 // Inject image into the question area
+const questionArea = document.getElementById("questionArea");
 if(imagePath) {
-    document.getElementById("questionArea").innerHTML = `
-        <img src="${imagePath}" alt="Question" />
-    `;
+    questionArea.innerHTML = `<img src="${imagePath}" alt="Question" />`;
 } else {
-    document.getElementById("questionArea").innerHTML = "<p>No question selected.</p>";
+    questionArea.innerHTML = "<p style='color:gray; font-style:italic;'>No question selected.</p>";
 }
 
 // Word count functionality
@@ -51,4 +54,3 @@ textarea.addEventListener("input", () => {
 
 </body>
 </html>
-
