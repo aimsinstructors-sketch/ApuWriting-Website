@@ -7,8 +7,20 @@ body {
 
 .main-header {
     text-align: center;
-    padding: 20px;
+    padding: 25px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #333;
 }
+.main-header h1 {
+    color: #000;
+    letter-spacing: 2px;
+}
+
+.main-header h2 {
+    color: #444;
+    font-weight: normal;
+}
+
 
 .container {
     max-width: 1000px;
@@ -65,3 +77,4 @@ body {
     margin-top: 5px;
     font-weight: bold;
 }
+
