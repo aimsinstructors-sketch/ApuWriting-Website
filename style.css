@@ -1,80 +1,88 @@
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: #fdfdfd;
+    background: #f5f9ff;
 }
 
+/* ===== HEADER ===== */
 .main-header {
     text-align: center;
     padding: 25px;
-    background-color: #ffffff;
-    border-bottom: 1px solid #333;
+    background-color: #87CEEB; /* Sky Blue */
+    border-bottom: 2px solid #2b6f8f;
 }
+
 .main-header h1 {
     color: #000;
     letter-spacing: 2px;
+    margin: 0;
 }
 
 .main-header h2 {
-    color: #444;
+    color: #111;
     font-weight: normal;
+    margin: 5px 0 0;
 }
 
-
+/* ===== PAGE CONTAINER ===== */
 .container {
-    max-width: 1000px;
-    margin: 20px auto;
+    max-width: 1100px;
+    margin: 30px auto;
     padding: 10px;
 }
 
-/* Flex container for question + answer */
+/* ===== QUESTION + ANSWER WRAPPER ===== */
 .qa-container {
     display: flex;
     gap: 20px;
+    align-items: stretch; /* IMPORTANT */
 }
 
-/* Question and Answer boxes - equal width and height */
-.question, .answer {
-    flex: 1; /* Equal width */
-    display: flex;
-    flex-direction: column;
+/* ===== QUESTION & ANSWER BOX ===== */
+.question,
+.answer {
+    flex: 1;
     border: 1px solid #ccc;
     background: #fff;
-    min-height: 400px;
+    height: 500px; /* FIXED SAME HEIGHT */
     box-sizing: border-box;
-    padding: 0; /* Remove padding for full image size */
 }
 
-/* Question image styling - fill container */
+/* ===== QUESTION IMAGE ===== */
+.question {
+    overflow: hidden;
+}
+
 .question img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Makes the image fill the box fully */
+    object-fit: contain; /* Keep full image visible */
     display: block;
 }
 
-/* Answer container styling */
+/* ===== ANSWER BOX ===== */
 .answer {
-    padding: 10px; /* Add padding for textarea */
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
 }
 
 .answer h2 {
-    margin: 10px 0;
+    margin: 5px 0 10px;
 }
 
 .answer textarea {
+    flex: 1;
     width: 100%;
-    flex: 1; /* Take full height of container */
     resize: none;
-    padding: 10px;
     font-size: 16px;
+    padding: 10px;
     box-sizing: border-box;
 }
 
 #wordCount {
     text-align: right;
-    margin-top: 5px;
     font-weight: bold;
+    margin-top: 6px;
 }
-
