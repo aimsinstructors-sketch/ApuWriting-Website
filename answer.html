@@ -30,26 +30,29 @@
 </div>
 
 <script>
-// Use the uploaded image for testing
-const imagePath = '/mnt/data/8e739331-1149-4653-a4c3-6ef0e7ae95bb.png';
-
+const imagePath = localStorage.getItem("selectedQuestionImage");
 const questionArea = document.getElementById("questionArea");
-if(imagePath) {
-    questionArea.innerHTML = `<img src="${imagePath}" alt="Question" />`;
+
+if (imagePath) {
+    questionArea.innerHTML = `<img src="${imagePath}" alt="Question">`;
 } else {
-    questionArea.innerHTML = "<p style='color:gray; font-style:italic;'>No question selected.</p>";
+    questionArea.innerHTML =
+        "<p style='color:gray; text-align:center; margin-top:40%;'>No question selected.</p>";
 }
 
-// Word count functionality
+/* Word Count */
 const textarea = document.getElementById("answerBox");
 const wordCountDisplay = document.getElementById("wordCount");
 
 textarea.addEventListener("input", () => {
-    const text = textarea.value.trim();
-    const words = text === "" ? 0 : text.split(/\s+/).length;
-    wordCountDisplay.textContent = `Word Count: ${words}`;
+    const words = textarea.value.trim() === ""
+        ? 0
+        : textarea.value.trim().split(/\s+/).length;
+    wordCountDisplay.textContent = "Word Count: " + words;
 });
 </script>
 
+
 </body>
 </html>
+
