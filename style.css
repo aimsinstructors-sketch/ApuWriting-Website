@@ -1,97 +1,112 @@
-/* 🌟 Root theme variables */
-:root {
-  --font-base: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  --font-heading: "Poppins", sans-serif;
-  --bg-color: #ffffff;
-  --text-color: #222222;
-  --accent-color: #3a76f0;
-  --light-bg: #f8f9fa;
-  --border-radius: 6px;
-  --spacing: 1rem;
-  --transition: 0.3s ease;
-}
-
-/* 🧹 Global reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* 🧠 Body & default typography */
 body {
-  font-family: var(--font-base);
-  background: var(--light-bg);
-  color: var(--text-color);
-  line-height: 1.6;
-  padding: var(--spacing);
+    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #fdfdfd;
+    background: #f5f9ff;
 }
 
-/* 📦 Container to center content */
+/* ===== HEADER ===== */
+.main-header {
+    text-align: center;
+    padding: 25px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #333;
+    background-color: #87CEEB; /* Sky Blue */
+    border-bottom: 2px solid #2b6f8f;
+}
+
+.main-header h1 {
+    color: #000;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+.main-header h2 {
+    color: #444;
+    color: #111;
+    font-weight: normal;
+    margin: 5px 0 0;
+}
+
+
+/* ===== PAGE CONTAINER ===== */
 .container {
-  max-width: 900px;
-  margin: auto;
-  padding: var(--spacing);
-  background: var(--bg-color);
-  border-radius: var(--border-radius);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    max-width: 1000px;
+    margin: 20px auto;
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 10px;
 }
 
-/* 🧱 Headings */
-h1, h2, h3 {
-  font-family: var(--font-heading);
-  color: var(--accent-color);
-  margin-bottom: 0.6rem;
+/* Flex container for question + answer */
+/* ===== QUESTION + ANSWER WRAPPER ===== */
+.qa-container {
+    display: flex;
+    gap: 20px;
+    align-items: stretch; /* IMPORTANT */
 }
 
-h1 {
-  font-size: 2.4rem;
+/* Question and Answer boxes - equal width and height */
+.question, .answer {
+    flex: 1; /* Equal width */
+    display: flex;
+    flex-direction: column;
+/* ===== QUESTION & ANSWER BOX ===== */
+.question,
+.answer {
+    flex: 1;
+    border: 1px solid #ccc;
+    background: #fff;
+    min-height: 400px;
+    height: 500px; /* FIXED SAME HEIGHT */
+    box-sizing: border-box;
+    padding: 0; /* Remove padding for full image size */
 }
 
-h2 {
-  font-size: 1.8rem;
+/* Question image styling - fill container */
+/* ===== QUESTION IMAGE ===== */
+.question {
+    overflow: hidden;
 }
 
-/* ✨ Stylish horizontal rule */
-hr {
-  border: none;
-  height: 2px;
-  background: var(--accent-color);
-  margin: var(--spacing) 0;
+.question img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Makes the image fill the box fully */
+    object-fit: contain; /* Keep full image visible */
+    display: block;
 }
 
-/* 📝 Questions section */
-ul.questions {
-  list-style-type: none;
-  margin-top: var(--spacing);
+/* Answer container styling */
+/* ===== ANSWER BOX ===== */
+.answer {
+    padding: 10px; /* Add padding for textarea */
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
 }
 
-ul.questions li {
-  padding: 0.8rem;
-  border-bottom: 1px solid #ddd;
-  transition: background var(--transition);
+.answer h2 {
+    margin: 10px 0;
+    margin: 5px 0 10px;
 }
 
-ul.questions li:hover {
-  background: #eef4ff;
-  cursor: pointer;
+.answer textarea {
+    flex: 1;
+    width: 100%;
+    flex: 1; /* Take full height of container */
+    resize: none;
+    padding: 10px;
+    font-size: 16px;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
-/* 📌 Link styling */
-a {
-  color: var(--accent-color);
-  text-decoration: none;
-  font-weight: bold;
-  transition: color var(--transition);
-}
-
-a:hover {
-  color: #1c4bb1;
-}
-
-/* 🖼 Responsive typographic rules */
-@media (max-width: 768px) {
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.6rem; }
-  body { padding: 0.5rem; }
+#wordCount {
+    text-align: right;
+    margin-top: 5px;
+    font-weight: bold;
+    margin-top: 6px;
 }
