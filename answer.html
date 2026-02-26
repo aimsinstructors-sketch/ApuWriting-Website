@@ -13,21 +13,21 @@
 </header>
 <hr>
 
-<div class="container">
     <div class="qa-container">
-        <!-- Question Image -->
-        <div class="question" id="questionArea">
-            <!-- Image will be injected here -->
-        </div>
 
-        <!-- Answer Box -->
-        <div class="answer">
-            <h2>Your Answer</h2>
-            <textarea id="answerBox" spellcheck="false" autocorrect="off" autocomplete="off" autocapitalize="off" placeholder="Write your answer here..."></textarea>
-            <p id="wordCount">Word Count: 0</p>
-        </div>
+    <!-- Left: Question -->
+    <div class="question">
+        <img src="question.jpg" alt="Question">
     </div>
-</div>
+
+    <!-- Right: Answer -->
+    <div class="answer">
+        <h2>Your Answer</h2>
+        <textarea id="answerText"></textarea>
+        <div id="wordCount">Word Count: 0</div>
+        <textarea id="answerBox" spellcheck="false" autocorrect="off" autocomplete="off" autocapitalize="off" placeholder="Write your answer here..."></textarea>
+            <p id="wordCount">Word Count: 0</p>
+    </div>
 
 <script>
 const imagePath = localStorage.getItem("selectedQuestionImage");
@@ -55,4 +55,5 @@ textarea.addEventListener("input", () => {
 
 </body>
 </html>
+
 
