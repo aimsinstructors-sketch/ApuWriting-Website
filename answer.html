@@ -12,7 +12,7 @@
     <h2>(APU) WRITING</h2>
 </header>
 <hr>
-
+<div id="timerBox">Time Left: 60:00</div>
    <div class="qa-container">
 
     <!-- Left: Question -->
@@ -28,6 +28,40 @@
     </div>
 
 <script>
+/* ===== 1 HOUR TIMER ===== */
+
+let timeLeft = 60 * 60; // 60 minutes in seconds
+const timerBox = document.getElementById("timerBox");
+
+function startTimer() {
+
+    const timer = setInterval(() => {
+
+        let minutes = Math.floor(timeLeft / 60);
+        let seconds = timeLeft % 60;
+
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        timerBox.textContent = `Time Left: ${minutes}:${seconds}`;
+
+        // Turn red in last 5 minutes
+        if (timeLeft <= 300) {
+            timerBox.style.background = "#c0392b";
+        }
+
+        if (timeLeft <= 0) {
+            clearInterval(timer);
+            timerBox.textContent = "Time's Up!";
+            alert("Time is over! Please submit your answer.");
+        }
+
+        timeLeft--;
+
+    }, 1000);
+}
+
+startTimer();
+    
 const imagePath = localStorage.getItem("selectedQuestionImage");
 const questionArea = document.getElementById("questionArea");
 
@@ -53,6 +87,7 @@ textarea.addEventListener("input", () => {
 
 </body>
 </html>
+
 
 
 
