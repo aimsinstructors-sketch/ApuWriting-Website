@@ -21,6 +21,19 @@
     font-weight: normal;
     color: #111;
 }
+
+/* ===== TIMER ===== */
+#timerBox {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    background: #222;
+    color: #fff;
+    padding: 10px;
+    margin: 10px auto;
+    width: 220px;
+    border-radius: 6px;
+}
 /* ===== QUESTION + ANSWER WRAPPER ===== */
 .qa-container {
     display: flex;
@@ -64,4 +77,5 @@
     padding: 10px;
     box-sizing: border-box;
 }
+
 
